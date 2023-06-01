@@ -3,7 +3,6 @@ const compression = require('compression');
 const methodOverride = require('method-override');
 var cors = require('cors');
 const path = require('path');
-const { pool } = require('./database');
 
 
 module.exports = function () {
@@ -13,13 +12,13 @@ module.exports = function () {
 
     app.use(express.json());
 
-    app.use(express.urlencoded({extended: true}));
+    app.use(express.urlencoded({extended: false}));
 
     app.use(methodOverride());
 
     app.use(cors());
 
-    app.use(express.static(path.join(parentDirectory, 'public')));
+    app.use(express.static(__dirname + './../public'));
 
     /* App (Android, iOS) */
     // TODO: 도메인을 추가할 경우 이곳에 Route를 추가하세요.

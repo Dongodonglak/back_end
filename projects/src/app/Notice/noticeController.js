@@ -21,7 +21,7 @@ exports.getNoticeList = async function (req, res) {
 
   const noticeResponse = await noticeProvider.noticeListResult(groupId);
   // return res.send(response(baseResponse.SUCCESS, noticeResponse));
-  return res.render("../../../views/notice.ejs",{result:noticeResponse});
+  return res.render("../views/notice/notice.ejs",{result:noticeResponse});
 
 };
 
