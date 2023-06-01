@@ -81,7 +81,6 @@ exports.postNotice = async function (req, res) {
     );
 
     return res.send(noticeResponse);
-    // return res.render("../views/notice/noticeLook.ejs",{result:noticeResponse});
     
 }
 
