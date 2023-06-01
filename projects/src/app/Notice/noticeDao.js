@@ -22,9 +22,7 @@ async function selectNotice(connection, groupId, postId) {
 async function insertNotice(connection, insertNoticeParams) {
   const insertNoticeQuery = `
                   INSERT INTO Post
-                  (userId, groupId, postTitle, postContent, category
-
-                  )
+                  (userId, groupId, postTitle, postContent, category)
                   VALUES (?, ?, ?, ?, ?)
                 `;
   const insertNoticeRow = await connection.query(
@@ -47,6 +45,7 @@ async function updateNotice(connection, updateNoticeParams) {
   const updateNoticeRow = await connection.query(updateNoticeQuery, updateNoticeParams);
   return updateNoticeRow;
 }
+
 
 
 

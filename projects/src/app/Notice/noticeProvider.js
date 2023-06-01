@@ -22,3 +22,14 @@ exports.noticeResult = async function (groupId, noticeId) {
 
     return noticeSelectResult;
 };
+
+
+
+
+exports.makeNotice = async function (groupId) {
+  const connection = await pool.getConnection(async (conn) => conn);
+  const noticeResult = await noticeDao.makeNotice(connection, groupId);
+  connection.release();
+
+  return noticeResult;
+}

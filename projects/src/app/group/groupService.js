@@ -41,3 +41,30 @@ exports.createUser = async function (email, password, nickname) {
         return errResponse(baseResponse.DB_ERROR);
     }
 };
+
+exports.confirmLeader = async function (userId,groupId) {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        const isgroupResult = await groupDao.selectGroupLeader(connection,userId,groupId);
+        connection.release();
+        return response(isgroupResult);
+
+    } catch (err) {
+        logger.error(`App - editUser Service error\n: ${err.message}`);
+        return errResponse(baseResponse.DB_ERROR);
+    }
+}
+
+exports.postGroups = async function (userId,groupId,groupCode) {
+    try{
+        const connection = await pool.getConnection(async (conn) => conn);
+        const checkGroupResult = await groupProvider.checkGroupId(connection,userId,groupId);
+        if(checkGroupResult) return errResponse(baseResponse.GROUP_EXIST_MEMBER);
+        const checkGroupCode = await groupDao.selectGroupCode(connection,groupCode);
+        return checkGroupCode;
+
+    } catch (err) {
+        logger.error(`App - postSignIn Service error\n: ${err.message} \n${JSON.stringify(err)}`);
+        return errResponse(baseResponse.DB_ERROR);
+    }
+}

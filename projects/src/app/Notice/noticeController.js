@@ -2,9 +2,19 @@ const noticeProvider = require("./noticeProvider");
 const noticeService = require("./noticeService");
 const baseResponse = require("../../../config/baseResponseStatus");
 const {response, errResponse} = require("../../../config/response");
-
+const getUserId = require("../login/loginController");
 const regexEmail = require("regex-email");
 const {emit} = require("nodemon");
+
+// 유저아이디 가져오기
+// 1. post
+// const userId = getUserId.getUserId;
+// userId = req.body.userId;
+
+// 2. get
+// const userId = getUserId.getUserId;
+// req.parmas.userId = userId;
+
 
 
 /**
@@ -21,7 +31,7 @@ exports.getNoticeList = async function (req, res) {
 
   const noticeResponse = await noticeProvider.noticeListResult(groupId);
   // return res.send(response(baseResponse.SUCCESS, noticeResponse));
-  return res.render("../views/notice/notice.ejs",{result:noticeResponse});
+  return res.render("../views/notice/noticeList.ejs",{result:noticeResponse});
 
 };
 
@@ -39,8 +49,7 @@ exports.getNotice = async function (req, res) {
     const noticeId = req.params.noticeId;
 
     const notice = await noticeProvider.noticeResult(groupId, noticeId);
-    // return res.send(response(baseResponse.SUCCESS, notice));
-    return res.render("../../../views/",{result:notice});
+    return res.render("../views/notice/noticeLook.ejs",{result:notice});
 
 };
 
@@ -48,21 +57,34 @@ exports.getNotice = async function (req, res) {
 /**
  * API No. 3
  * API Name : 새로운 공지글 등록 API
- * [POST] /app/groupId/notices
+ * [POST] /app/createNotice
  * Body: userId, groupId, title, contents, fileLink, fileExten, fileName
  */
 
+exports.makeNotice = async function (req, res) {
+
+  return res.render("../views/notice/createNotice.ejs");
+}
+
+// 이제 파일도 저장하게 하고 userId, groupId 세션에서 가져와서 저장하게 하기
 exports.postNotice = async function (req, res) {
-  
-    const {userId, groupId, title, contents, category} = req.body;
+    const {title, contents} = req.body;
+    // const userId = getUserId.getUserId;
+    const userId = 1;
+    // userId = req.body.userId;
+    // const groupId = req.body.groupId;
+    const groupId = 1;
+    const category = "공지사항";
     
     const noticeResponse = await noticeService.createNotice(
       userId, groupId, title, contents, category
     );
 
     return res.send(noticeResponse);
+    // return res.render("../views/notice/noticeLook.ejs",{result:noticeResponse});
     
 }
+
 
 // exports.postNotice = async function (req, res) {
   
