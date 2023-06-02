@@ -1,10 +1,9 @@
 const express = require('./config/express');
 const {logger} = require('./config/winston');
-const app = express();
 
 const port = 3001;
 express().listen(port);
-app.set("view engine", "ejs");
+
 
 logger.info(`${process.env.NODE_ENV} - API Server Start At Port ${port}`);
 //여기까지가 기존 코드

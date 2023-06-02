@@ -1,13 +1,3 @@
-/*전체 선택자*/
-*{ 
-  /*font-family: jeju-godic;*/
-      margin:0;
-      padding:0;
-      text-align: left;
-      font-family: 'Nanum Gothic', sans-serif;
-  }
-  
-
 body {
   background-color: #FBFCFF;
   margin: 0;
@@ -198,112 +188,119 @@ body {
   /* border: 1px solid; */
 }
 
-  
-  
-  .hw_parts{
-      margin: 10px auto;
-  }
-  
-  
-  .hw_main{
-      width:60%;
-      height: 1000px;
-      margin: 10px auto;
-      padding-top: 5px;
-  /*    box-shadow: -100px;*/
-      
-      background-color: white;
-      border-radius: 20px 20px 0px 0px;
-      position: relative;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  
-  .hw_assignments{
-      width: 60%;
-      font-size: 30px;
-      margin: 30px auto;
-      font-weight: bold;
-  /*    letter-spacing: 0.1em;*/
-  
-  }
-  
-  .hw_contents {
-      margin: 10px auto;
-      width: 90%;
-      
-  }
-  
-  .hw_title{
-      
-  }
-  
-  .subtitle{
-      font-size:20px;
-      padding:5px;
-      font-weight: 600;
-      color: #808080;
-  
-  
-  }
-  
-  .title{
-      font-weight: bold;
-      color: #808080;
-      font-size:20px;
-      height: 40px;
-      width: 100%;
-      
-  }
-  
-  .write_blank{
-      border-style: none;
-  }
-  
-  .Line{
-      width: 90%;
-      margin: 0px auto;
-  
-  }
-  
-  .hw_file{
-  
-      
-  }
-  
-  .sub_file{
-  
-      
-  }
-  
-  .hw_date{
-  
-      
-  }
-  
-  #start_date{
-  
-  
-  }
-  
-  
-  
-  #end_date{
-  
-  
-  }
-  
-  
-  .hw_text{
-  
-  
-  
-  }
+
+
+
+
+
+
+
+.hw_parts{
+    /* margin-top: 40px; */
+}
+
+
+.hw_main{
+    width:80%;
+    height: 1000px;
+    margin: 50px auto;
+    padding-top: 5px;
+/*    box-shadow: -100px;*/
+    
+    background-color: white;
+    border-radius: 20px 20px 0px 0px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.hw_assignments{
+    width: 80%;
+    font-size: 30px;
+    margin: 30px auto;
+    margin-top: 50px;
+    font-weight: bold;
+    padding-left: 30px;
+/*    letter-spacing: 0.1em;*/
+
+}
+
+.hw_contents {
+    margin: 10px auto;
+    width: 90%; 
+    
+}
+
+.hw_title{
+    
+}
+
+.subtitle{
+    font-size:20px;
+    padding:5px;
+    font-weight: 600;
+    color: #808080;
+
+
+}
+
+.title{
+    font-weight: bold;
+    color: #808080;
+    font-size:20px;
+    height: 40px;
+    width: 100%;
+    
+}
+
+.write_blank{
+    border-style: none;
+}
+
+.Line{
+    width: 90%;
+    margin: 0px auto;
+
+}
+
+.hw_file{
+
+    
+}
+
+.sub_file{
+
+    
+}
+
+.hw_date{
+
+    
+}
+
+#start_date{
+
+
+}
+
+
+
+#end_date{
+
+
+}
+
+
+.hw_text{
+
+
+
+}
   
   
   .content_blank{
       width: 100%;
-      height: 500px;
+      height: 750px;
       font-size: 20px;
   }
   
@@ -316,7 +313,7 @@ body {
       padding:10px;
       text-align: center;
       border-radius: 20px;
-  
+      font-size: 18px;
       background-color: #9799FE;
       border-style: none;
   }

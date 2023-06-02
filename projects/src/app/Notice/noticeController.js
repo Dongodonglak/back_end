@@ -38,7 +38,7 @@ exports.getNoticeList = async function (req, res) {
 /**
  * API No. 2
  * API Name : 특정 공지글 조회 API
- * [GET] /app/:groupId/notices/:noticeId
+ * [GET] /app/groupId/notices/:noticeId
  */
 exports.getNotice = async function (req, res) {
 

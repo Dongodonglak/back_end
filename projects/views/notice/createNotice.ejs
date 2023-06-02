@@ -79,37 +79,39 @@
 
 
     <!-- 게시글 작성 -->
-    <div class="hw_parts hw_assignments">assignments</div>
+    <div class="content">
+      <div class="hw_parts hw_assignments">notice</div>
 
-    <form action="/app/notice" method="post">
-      <section class="hw_parts hw_main">
-        <!--제목-->
-        <div class="hw_contents hw_title">
-            <div class="subtitle"><input type="text" name="title" class="write_blank title" placeholder="제목"> </div>
-        </div> 
+      <form action="/app/notice" method="post">
+        <section class="hw_parts hw_main">
+          <!--제목-->
+          <div class="hw_contents hw_title">
+              <div class="subtitle"><input type="text" name="title" class="write_blank title" placeholder="제목"> </div>
+          </div> 
+          
+          <hr class="Line">
+
+          <!--첨부파일-->
+          <div class="hw_contents hw_file">
+              <div class="subtitle sub_file">첨부파일 <span class="material-symbols-outlined">
+                  attach_file
+                  </span>
+                  <input type="file" id="file" name="file" accept=".png, .jpeg, .pdf, .docx, .pptx, .hwp"></div>
+              
+          </div> 
+
+          <hr class="Line">
+
+          <!--내용 작성 란-->
+          <div class="hw_contents hw_text">  
+              <textarea name="contents" placeholder="과제 글을 작성해주세요." class="write_blank content_blank"></textarea>
+              <input type="submit" value="Submit" class="submit_btn"/>
+          </div> 
         
-        <hr class="Line">
-
-        <!--첨부파일-->
-        <div class="hw_contents hw_file">
-            <div class="subtitle sub_file">첨부파일 <span class="material-symbols-outlined">
-                attach_file
-                </span>
-                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"></div>
-            
-        </div> 
-
-        <hr class="Line">
-
-        <!--내용 작성 란-->
-        <div class="hw_contents hw_text">  
-            <textarea name="contents" placeholder="과제 글을 작성해주세요." class="write_blank content_blank">
-            </textarea>
-            <input type="submit" value="Submit" class="submit_btn"/>
-        </div> 
-        
-      </section>
-    </form>
+        </section>
+      </form>
+    </div>
+    
     
     
 

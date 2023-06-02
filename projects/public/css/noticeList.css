@@ -190,14 +190,6 @@ body {
 
 
 
-body {
-  background-color: #FBFCFF;
-  margin: 0;
-  width: 1440px;
-  /* height: 1024px; */
-  height: 100%;
-}
-
 /*게시판 헤더*/
 .notice-board-header {
   height: 260px;
