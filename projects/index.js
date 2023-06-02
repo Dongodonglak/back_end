@@ -23,8 +23,10 @@ const parentDirectory = path.dirname(__filename) + '/../';
 
 // 정적 파일 제공 경로 설정
 // app.use(express.static(path.join(parentDirectory, 'public')));
-app.use(express.static(path.resolve() + "/public"));
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.static(path.resolve() + "/public"));
+// app.use(express.urlencoded({ extended: false }));
+const pathComp= require("express-static");
+app.use('/public', pathComp('public'));
 
 // 라우트 등록
 // app.get("/app/:groupId/notices", async (req, res) => {
@@ -36,6 +38,21 @@ app.use(express.urlencoded({ extended: false }));
 //     res.send(error);
 //   }
 // });
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+//회원가입
+const user = require('./src/app/users/userController');
+app.get('/app/users/signup', (req, res) => {
+  res.render('signup');
+});
+app.post('/app/users/signup', user.postUsers);
+
+//유저조회
+app.get('/app/users',user.getUsers);
+
 
 app.get("/edit/:id", async (req, res) => {
   try {

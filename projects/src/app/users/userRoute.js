@@ -6,7 +6,7 @@ const express = require('../../../config/express');
 module.exports = function(app){
 
     app.set('view engine', 'ejs');
-    app.set('views', path.resolve() + '/views');
+    app.set('views', path.resolve() + '/views/sign');
 
     // app.use(bodyParser.json());
     // app.use(bodyParser.urlencoded({extended: true}));

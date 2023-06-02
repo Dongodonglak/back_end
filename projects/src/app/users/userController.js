@@ -20,6 +20,12 @@ exports.postUsers = async function (req, res) {
     const {userId, userName, email, password, checkpw} = req.body;
 
     // 빈 값 체크
+    if (!userId)
+        return res.send(response(baseResponse.USER_USERID_EMPTY));
+
+    if (!userName)
+        return res.send(response(baseResponse.SIGNUP_USERNAME_EMPTY));
+
     if (!email)
         return res.send(response(baseResponse.SIGNUP_EMAIL_EMPTY));
 
