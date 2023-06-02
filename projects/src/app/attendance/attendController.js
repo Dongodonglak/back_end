@@ -21,7 +21,14 @@ exports.getAttendance = async function (req, res) {
 
     const attendListByDate = await attendProvider.attendUserList(groupId, date);
     return res.send(response(baseResponse.SUCCESS, attendListByDate));
-    // return res.render("../views/attendance/attendance.ejs",{result:attendListByDate});
+    return res.send(response(baseResponse.SUCCESS, attendListByDate.userId));
+    return res.send(response(baseResponse.SUCCESS, {
+        userId: attendListByDate.userId,
+        nickname: attendListByDate.nickname,
+        profileImg: attendListByDate.profileImg,
+        attendanceTime: attendListByDate.attendanceTime
+      }));
+    // return res.render("../views/attendance/attendance.ejs",{result:attendListByDate[0]});
 
 };
 

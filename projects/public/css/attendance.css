@@ -1,3 +1,184 @@
+/* side bar */
+/* Side Bar */
+body {
+    background-color: #FBFCFF;
+    margin: 0;
+    width: 1440px;
+    /* height: 1024px; */
+    height: 100%;
+  }
+  
+  .sidebar {
+    width: 350px;
+    height: 100%;
+    background-color: rgba(177, 178, 255, 0.73);
+    border-radius: 35px;
+    position: absolute;
+    left: 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .left-sidebar {
+    width: 110px;
+    height: 100%;
+    background-color: #F6F7FB;
+    position: absolute;
+    left: 0;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+  }
+  
+  .right-sidebar {
+    width: 320px;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    right: 0px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+  }
+  
+  .profile-text {
+    color: #9799FE;
+    font-size: 18pt;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding-left: 30px;
+    padding-top: 20px;
+    font-weight: 700;
+  }
+  
+  
+  /*left-sidebar*/
+  #logo {
+    width: 80px;
+    margin-top: 40px;
+    margin-left: 12px;
+    margin-bottom: 20px;
+  }
+  #home, #members, #user, #settings {
+    width: 35px;
+    position: relative;
+    right: 10px;
+    margin-bottom: 65px;
+  }
+  
+  #group_name {
+    color: white;
+    font-weight: 700;
+    /* width: 240px; */
+    font-size: 26pt;
+    position: relative;
+    left: 120px;
+  }
+  
+  .sidebar-menu {
+    width: 240px;
+    position: relative;
+    left: 90px;
+    top: 20px;
+  }
+  .sidebar-menu-items {
+    margin-bottom: 55px;
+  }
+  
+  .sidebar-menu-items > a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .notice-board-category {
+    margin-top: 25px;
+  }
+  .notice-board-category > a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  /*right-sidebar*/
+  .right-sidebar-icons {
+    width: 28px;
+    position: relative;
+    left: 215px;
+    top: 22px;
+    margin-left: 10px;
+  }
+  .profile {
+    /* border: solid 1px; */
+    position: relative;
+    top: 80px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #profile-img {
+    width: 150px;
+    height: 150px;
+    /* border: 1px solid ; */
+    object-fit: cover;
+    border-radius: 70%;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .profile-name {
+    font-size: 28px;
+    width: 160px;
+    margin: 0 auto;
+    text-align: center;
+    /* border: 1px solid; */
+    margin-bottom: 5px;
+  }
+  .grade {
+    width: 110px;
+    height: 30px;
+    background-color: #C9BCFF;
+    margin: 0 auto;
+    border-radius: 15px;
+    /* border: 1px solid; */
+    color: white;
+    padding-top: 3px;
+  }
+  
+  .member_or_chatting {
+    position: relative;
+    top: 115px;
+    /* border: 1px solid; */
+    text-align: center;
+  }
+  .selectbar {
+    width: 180px;
+    height: 60px;
+    font-size: 16px;
+    background-color: #9799FE;
+    margin: 0 auto;
+    border-radius: 40px;
+    padding-bottom: 8px;
+  }
+  .selectbar > p {
+    display: inline-block;
+  }
+  .selectbar > .selected {
+    border-radius: 30px;
+    background-color: white;
+    color: #6E63B6;
+    width: 90px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-weight: 700;
+  }
+  .selectbar > .unselected {
+    color: white;
+    /* border: 1px solid; */
+  }
+
+/* main */
 body {
     width: 1440px;
     height: 1024px;

@@ -1,2 +1,214 @@
-<% let name = "name"; %>
-<h1> Hello, <%= name %> </h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동고동락</title>
+    <link href="/css/attendance.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <!-- Side Bar -->
+    <div class="sidebar">
+        <div id="group_name"><p>Algorithm<br> Club</p></div>
+        <div class="sidebar-menu">
+          <ul>
+            <div class="sidebar-menu-items"><a href="">group information</a></div>
+            <div class="sidebar-menu-items"><a href="">rank</a></div>
+            <div class="sidebar-menu-items"><a href="">schedule</a></div>
+            <div class="sidebar-menu-items"><a href="">members</a></div>
+            <div class="sidebar-menu-items"><a href="">mypage</a></div>
+            <div class="sidebar-menu-items">
+              <a href="">notice board</a>
+              <ul>
+                <div class="notice-board-category"><a href="">► notice</a></div>
+                <div class="notice-board-category"><a href="">► vote</a></div>
+                <div class="notice-board-category"><a href="">► schedule</a></div>
+                <div class="notice-board-category"><a href="">► assignments</a></div>
+                <div class="notice-board-category"><a href="">► Q&A</a></div>
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="left-sidebar">
+        <img id="logo" src="/img/Logo.png">
+        <ul class="left-sidebar-icons">
+          <img id="home" src="/img/home.png">
+          <img id="members" src="/img/members.png">
+          <img id="user" src="/img/user.png">
+          <img id="settings" src="/img/settings.png">
+        </ul>
+      </div>
+      <div class="right-sidebar">
+        <!-- 프로필바 상단 -->
+        <div>
+          <p class="profile-text">My profile</p>
+          <img class="right-sidebar-icons" src="/img/profile_settings.png">
+          <img class="right-sidebar-icons" src="/img/alarm.png">
+        </div>
+        
+        <!-- 프로필 사진, 이름, 멤버 등급 -->
+        <div class="profile">
+          <div><img id="profile-img" src="/img/profile_img_jaeae.jpg"></div>
+          <p class="profile-name">Jaeae</p>
+          <p class="grade">member</p>
+        </div>
+  
+        <!-- 멤버 또는 채팅 창 -->
+        <div class="member_or_chatting">
+          <!-- 보라색 바 -->
+          <div class="selectbar">
+            <p class="selected">member</p>
+            <p class="unselected">chatting</p>
+          </div>
+          <!-- 멤버 목록 -->
+          <div></div>
+          <!-- 채팅창 목록 -->
+          <div></div>
+        </div>
+      </div>
+    
+
+    <!-- 메인 -->
+    <div class="attendance_main">
+        <ul class="attend-icon-list">
+            <li>
+                <h1>Attendance</h1>
+            </li>
+            <li>
+                <div class="attend_search">
+                    <button class="searchicon">
+                        <span class="material-symbols-outlined">
+                            search
+                        </span>
+                    </button>
+                    <input id="search__box" placeholder="Search members" />
+                </div>
+            </li>
+            <li>
+                <div class="attend_info">
+                    <h2>출결정보</h2>
+                </div>
+            </li> 
+            <li>
+                <div class="attend_box">  
+                    <div class="member_section">
+                            <ul class="memberlist">
+                                <li class = first_li>
+                                    <div class="memberprofile_first">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">조은재</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile">
+                                        <img id="profile" src="../img/mymelody.jpeg">
+                                        <p class="profile_name">이지원</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">김준희</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">서가은</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile_first">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">김수연</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">조은재</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">조은재</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">서가은</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile_first">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">조은재</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">조은재</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">조은재</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="memberprofile">
+                                        <img id="profile" src="../img/profile.png">
+                                        <p class="profile_name">조은재</p>
+                                    </div>
+                                </li>
+                            </ul>
+                    </div>
+                    <div class="text_section">
+                        <ul class="textlist">
+                            <li><input type="date" value="2030-12-30" class="datebox"></li>
+                            <li><div class="line"></div></li>
+                            <li><div class="attendance_txt">
+                                <div class="attend_name"><%= JSON.stringify(result) %></div>
+                                </div>
+                                <!-- <div class="attendance_txt">
+                                    <div class="attend_name">박지웅</div>
+                                    <div class="attend_timestamp">14:32:47</div>
+                                    <div class="attend_state">출석</div>
+                                </div>
+                                <div class="attendance_txt">
+                                    <div class="attend_name">데빌홍</div>
+                                    <div class="attend_timestamp">14:32:47</div>
+                                    <div class="attend_state">출석</div>
+                                </div>
+                                <div class="attendance_txt">
+                                    <div class="attend_name">심광섭</div>
+                                    <div class="attend_timestamp">14:32:47</div>
+                                    <div class="attend_state">출석</div>
+                                </div>
+                                <div class="attendance_txt">
+                                    <div class="attend_name">조은재</div>
+                                    <div class="attend_timestamp">14:32:47</div>
+                                    <div class="attend_state">출석</div>
+                                </div>
+                                <div class="attendance_txt">
+                                    <div class="attend_name">이지원</div>
+                                    <div class="attend_timestamp">14:32:47</div>
+                                    <div class="attend_state">출석</div>
+                                </div> -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
