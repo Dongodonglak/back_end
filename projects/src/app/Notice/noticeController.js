@@ -20,7 +20,7 @@ exports.getNoticeList = async function (req, res) {
   const groupId = req.params.groupId;
 
   const noticeResponse = await noticeProvider.noticeListResult(groupId);
-  // return res.send(response(baseResponse.SUCCESS, noticeResponse));
+//   return res.send(response(baseResponse.SUCCESS, noticeResponse));
   return res.render("../views/notice/notice.ejs",{result:noticeResponse});
   
 
@@ -40,7 +40,7 @@ exports.getNotice = async function (req, res) {
     const noticeId = req.params.noticeId;
 
     const notice = await noticeProvider.noticeResult(groupId, noticeId);
-    // return res.send(response(baseResponse.SUCCESS, notice));
+    return res.send(response(baseResponse.SUCCESS, notice));
     return res.render("../../../views/",{result:notice});
 
 };

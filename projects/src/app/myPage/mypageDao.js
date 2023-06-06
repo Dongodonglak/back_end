@@ -1,18 +1,19 @@
 // 1. 유저 닉네임 조회 
-async function selectName(connection) {
+async function selectName(connection, groupId, userId) {
     const selectNameListQuery = `
-    SELECT JoinGroup.nickname
-    FROM JoinGroup, User
-    WHERE JoinGroup.userId = User.userId;
-                  `;
-    const [nameRows] = await connection.query(selectNameListQuery);
+    SELECT *
+    FROM JoinGroup 
+    WHERE groupId = ? AND userId = ?;
+                `;
+    const [nameRows] = await connection.query(selectNameListQuery, [groupId, userId]);
     return nameRows;
 }
+
 
 // 2. 유저별 게시글 수 조회
 async function selectPosts(connection) {
   const selectPostsQuery = `
-  SELECT COUNT(*)
+  SELECT count(*)
   FROM Post, User
   WHERE Post.userId = User.userId;
                 `;

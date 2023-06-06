@@ -61,7 +61,10 @@
       <!-- 프로필 사진, 이름, 멤버 등급 -->
       <div class="profile">
         <div><img id="profile-img" src="/img/profile_img_jaeae.jpg"></div>
-        <p class="profile-name"><%= JSON.stringify(name) %></p>
+          <% name.forEach((el, index) => {%>
+            <p class="profile-name"></p><%= el.nickname %></p>
+          <% }) %>
+        
         <p class="grade">member</p>
       </div>
 
@@ -91,12 +94,16 @@
             <img src="/img/profile_img.jpg" alt="프로필사진">
             <!-- 데베에서 프로필 사진 어케 가져오지 -->
           </span>
-          <span id="dataEl" class="userName"><%= JSON.stringify(name) %></span>
+          <% name.forEach((el, index) => {%>
+            <span class="userName"><%= el.nickname %></span>
+          <% }) %>
           <span class="userNum">20211149</span>
           <span class="editBtn">편집</span>
           <span class="divideLine"></span>
           <ul class="cnt1">
-            <li class="cntPost"><%= JSON.stringify(cntPost) %></li>
+              <% cntPost.forEach((el, index) => {%>
+                <li class="cntPost"><%= el %></li>
+              <% }) %>
             <li class="cntComment"><%= JSON.stringify(cntComment) %></li>
             <li class="cntLike"><%= JSON.stringify(cntLike) %></li>
             <!-- <li class="cntScrap">4</li> -->

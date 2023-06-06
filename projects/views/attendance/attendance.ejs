@@ -176,7 +176,11 @@
                             <li><input type="date" value="2030-12-30" class="datebox"></li>
                             <li><div class="line"></div></li>
                             <li><div class="attendance_txt">
-                                <div class="attend_name"><%= JSON.stringify(result) %></div>
+                                <% result.forEach((el, index) => {%>
+                                    <div class="attend_name"><%= el.nickname %></div>
+                                    <div class="attend_timestamp"><%= el.attendanceTime %></div>
+                                    <div class="attend_state">출석</div>
+                                  <% }) %>
                                 </div>
                                 <!-- <div class="attendance_txt">
                                     <div class="attend_name">박지웅</div>

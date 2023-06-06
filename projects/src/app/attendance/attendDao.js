@@ -1,14 +1,14 @@
 // 출결 조회 
-async function selectAttend(connection) {
+async function selectAttend(connection, groupId, scheduleId) {
   const selectAttendListQuery = `
-  SELECT JoinGroup.userId, JoinGroup.nickname, JoinGroup.profileImg, Attendance.attendanceTime
-  FROM Attendance, JoinGroup
-  WHERE Attendance.groupId = JoinGroup.groupId AND Attendance.userId = JoinGroup.userId AND JoinGroup.groupId = 1 AND Attendance.scheduleId = 1;
+  SELECT *
+  FROM Attendance
+  JOIN JoinGroup ON Attendance.groupId = JoinGroup.groupId
+  WHERE Attendance.groupId = ? AND scheduleId IS NULL;
                 `;
-  const [attendRows] = await connection.query(selectAttendListQuery);
+  const [attendRows] = await connection.query(selectAttendListQuery, [groupId, scheduleId]);
   return attendRows;
 }
-
 
 module.exports = {
   selectAttend,

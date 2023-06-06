@@ -31,8 +31,8 @@ exports.getMypage = async function (req, res) {
     // return res.send(response(baseResponse.SUCCESS, nameListByUser[userId]));
     return res.render("../views/myPage/mypage.ejs", {
         avatar:avatarByUser[0],
-        name:nameListByUser[userId],
-        cntPost:postsByUser[0],
+        name:nameListByUser,
+        cntPost:postsByUser,
         cntLike:likesByUser[0],
         cntComment:commentByUser[0],
         rewardPnt:rewardPntByUser[0],
