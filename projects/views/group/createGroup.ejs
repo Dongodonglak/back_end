@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>그룹생성</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JejuGothic%3A400"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C800"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A800"/>
+  <link rel="stylesheet" href="/css/createGroup.css"/>
+</head>
+
+<body>
+  <script>
+    const form = document.querySelector('form');
+  
+    form.addEventListener('submit', (event) => {
+      const selectedOption = document.querySelector('input[name="groupType"]:checked');
+  
+      if (!selectedOption) {
+        event.preventDefault(); // 폼 전송 막기
+        // 선택되지 않은 경우에 대한 처리 로직 추가
+      } else {
+        const selectedValue = selectedOption.value;
+        // 선택된 경우에 대한 처리 로직 추가
+      }
+    });
+  </script>
+  
+
+  <!-- 사이드바 -->
+  <div class="sidebar">
+    <div id="group_name"><p>Algorithm<br> Club</p></div>
+    <div class="sidebar-menu">
+      <ul>
+        <div class="sidebar-menu-items"><a href="">group information</a></div>
+        <div class="sidebar-menu-items"><a href="">rank</a></div>
+        <div class="sidebar-menu-items"><a href="">schedule</a></div>
+        <div class="sidebar-menu-items"><a href="">members</a></div>
+        <div class="sidebar-menu-items"><a href="">mypage</a></div>
+        <div class="sidebar-menu-items">
+          <a href="">notice board</a>
+          <ul>
+            <div class="notice-board-category"><a href="">► notice</a></div>
+            <div class="notice-board-category"><a href="">► vote</a></div>
+            <div class="notice-board-category"><a href="">► schedule</a></div>
+            <div class="notice-board-category"><a href="">► assignments</a></div>
+            <div class="notice-board-category"><a href="">► Q&A</a></div>
+          </ul>
+        </div>
+      </ul>
+    </div>
+  </div>
+
+  <div class="left-sidebar">
+    <img id="logo" src="/img/Logo.png">
+    <ul class="left-sidebar-icons">
+      <img id="home" src="/img/home.png">
+      <img id="members" src="/img/members.png">
+      <img id="user" src="/img/user.png">
+      <img id="settings" src="/img/settings.png">
+    </ul>
+  </div>
+  <div class="right-sidebar">
+    <!-- 프로필바 상단 -->
+    <div>
+      <p class="profile-text">My profile</p>
+      <img class="right-sidebar-icons" src="/img/profile_settings.png">
+      <img class="right-sidebar-icons" src="/img/alarm.png">
+    </div>
+    
+    <!-- 프로필 사진, 이름, 멤버 등급 -->
+    <div class="profile">
+      <div><img id="profile-img" src="https://i.pinimg.com/564x/ce/4e/36/ce4e36fe3add8d87eaa37e84e1834d6c.jpg"></div>
+      <p class="profile-name">cookie</p>
+      <p class="grade">member</p>
+    </div>
+
+    <!-- 멤버 또는 채팅 창 -->
+    <div class="member_or_chatting">
+      <!-- 보라색 바 -->
+      <div class="selectbar">
+        <p class="selected">member</p>
+        <p class="unselected">chatting</p>
+      </div>
+      <!-- 멤버 목록 -->
+      <div></div>
+      <!-- 채팅창 목록 -->
+      <div></div>
+    </div>
+  </div>
+
+    <div class="content">
+      <form action="/app/group" method="post">
+        <div class="grpphotopart-EES">
+          <div class="grpphototxt-gke">그룹 커버 사진</div>
+          <input class="grpphoto-jD8" type="text" name="groupImg" />
+        </div>
+        <div class="grpnamepart-ump">
+          <div class="groupname-dSv">그룹 이름</div>
+          <input class="nameblank-JZ4" type="text" name="groupName"/>
+        </div>
+        <div class="grpmoneypart-yfC">
+          <div class="wontxt-NxE">회비</div>
+          <div class="wonblank-WHk">
+            <div class="item--dtA">
+              <input class="nameblank-JZ4" type="number" name="membershipFee"/>원
+            </div>
+          </div>
+        </div>
+        <div class="selectpart-t3Q">
+          <div class="selecttitle-z6S">유형</div>
+          <div class="selectgroup-GZk">
+            <div class="selectlist-cNi">
+              <input class="selectclc-xhU" type="radio" name="groupType" value="동아리" />
+              <p class="selectlisttxt-g7g">동아리</p>
+            </div>
+            <div class="selectlist-R5G">
+              <input class="selectclc-B4S" type="radio" name="groupType" value="스터디" />
+              <p class="selectlisttxt-HtA">스터디</p>
+            </div>
+            <div class="selectlist-EYW">
+              <input class="selectclc-bdx" type="radio" name="groupType" value="소모임" />
+              <p class="selectlisttxt-KK4">소모임</p>
+            </div>
+          </div>
+        </div>
+        <input class="grpmakebtn-eML" type="submit" value="Submit" >
+      </form>
+  
+    </div>
+  </body>
+
+</html>

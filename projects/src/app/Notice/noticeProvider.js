@@ -13,6 +13,18 @@ exports.noticeListResult = async function (groupId) {
 
   return noticeListResult;
 };
+// 페이징 연습
+exports.pagingResult = async function (groupId) {
+  const connection = await pool.getConnection(async (conn) => conn);
+
+  const pagingResult = await noticeDao.pagedNotice(connection, groupId);
+  connection.release();
+
+  return pagingResult;
+}
+
+
+
 
 // 특정 공지글 조회
 exports.noticeResult = async function (groupId, noticeId) {

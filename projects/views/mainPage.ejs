@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Main Page</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/mainPage.css"/>
+  </head>
+  
+  <body>
+    <div class="sidebar">
+      <div id="group_name"><p>Algorithm<br> Club</p></div>
+      <div class="sidebar-menu">
+        <ul>
+          <div class="sidebar-menu-items"><a href="">group information</a></div>
+          <div class="sidebar-menu-items"><a href="">rank</a></div>
+          <div class="sidebar-menu-items"><a href="">schedule</a></div>
+          <div class="sidebar-menu-items"><a href="">members</a></div>
+          <div class="sidebar-menu-items"><a href="">mypage</a></div>
+          <div class="sidebar-menu-items">
+            <a href="">notice board</a>
+            <ul>
+              <div class="notice-board-category"><a href="">► notice</a></div>
+              <div class="notice-board-category"><a href="">► vote</a></div>
+              <div class="notice-board-category"><a href="">► schedule</a></div>
+              <div class="notice-board-category"><a href="">► assignments</a></div>
+              <div class="notice-board-category"><a href="">► Q&A</a></div>
+            </ul>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <div class="left-sidebar">
+      <img id="logo" src="../public/img/Logo.png">
+      <ul class="left-sidebar-icons">
+        <img id="home" src="../public/img/home.png">
+        <img id="members" src="../public/img/members.png">
+        <img id="user" src="../public/img/user.png">
+        <img id="settings" src="../public/img/settings.png">
+      </ul>
+    </div>
+    
+    <div class="right-sidebar">
+      <!-- 프로필바 상단 -->
+      <div>
+        <p class="profile-text">My profile</p>
+        <img class="right-sidebar-icons" src="/img/profile_settings.png">
+        <img class="right-sidebar-icons" src="/img/alarm.png">
+      </div>
+      
+      <!-- 프로필 사진, 이름, 멤버 등급 -->
+      <div class="profile">
+        <div><img id="profile-img" src="https://i.pinimg.com/564x/ce/4e/36/ce4e36fe3add8d87eaa37e84e1834d6c.jpg"></div>
+        <p class="profile-name">cookie</p>
+        <p class="grade">member</p>
+      </div>
+
+      <!-- 멤버 또는 채팅 창 -->
+      <div class="member_or_chatting">
+        <!-- 보라색 바 -->
+        <div class="selectbar">
+          <p class="selected">member</p>
+          <p class="unselected">chatting</p>
+        </div>
+        <!-- 멤버 목록 -->
+        <div></div>
+        <!-- 채팅창 목록 -->
+        <div></div>
+      </div>
+    </div>
+
+    
+    <div class="content">
+      <div class="username" style="cursor: pointer" onclick="location.href=''"> 사용자 이름</div>
+
+      <div class="groupname">
+        <p>동아리</p>
+      </div>
+
+      <div class="schedule-calendar">
+        <div class="header">
+          <div class="btn prevDay"></div>
+          <p class="dateTitle"></p>
+          <div class="btn nextDay"></div>
+        </div>
+        
+        <div class="grid dateHead">
+          <div class="sunday">일</div>
+          <div>월</div>
+          <div>화</div>
+          <div>수</div>
+          <div>목</div>
+          <div>금</div>
+          <div class="saturday">토</div>
+        </div>
+
+        <div class="grid dateBoard"></div>
+
+      </div>
+
+      <div class="right-menu">
+
+          <div class="schedule-list">
+            <p>가까운 일정</p>
+          </div>
+
+          <div class="btns">
+            <button class="btn member" onclick="location.href='' ">
+              Member
+              <img id="member" src="/img/people.png">
+            </button>
+
+            <button class="btn assignments" onclick="location.href='' ">
+              과제
+              <img id="assignments" src="/img/pie-chart.png">
+            </button>
+
+            <button class="btn group"><a href="/app/groups/link">
+              그룹 링크<br>생성
+              <!-- <img id="group" src="./img/group.png"> -->
+            </a></button>
+
+          </div>
+
+          
+
+      </div>
+      
+
+      <div class="notice">
+        <p>공지사항</p>
+
+        <div class="post">
+          <div class="post1">제목1</div>
+          <div class="post2">제목2</div>
+          <div class="post3">제목3</div>
+          <div class="post4">제목4</div>
+          <div class="post5">제목5</div>
+
+          <button class="btn-post" onclick="location.href=''">
+            +
+          </button>
+
+        </div>
+        
+      </div>
+
+    </div>
+
+  </body>
+</html>

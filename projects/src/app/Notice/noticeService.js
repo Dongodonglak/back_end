@@ -116,43 +116,47 @@ exports.editUser = async function (id, nickname) {
 
 
 //공지글 작성
+// exports.createNotice = async function (userId, groupId, title, contents, category, file) {
+//     try {
+
+//       const insertNoticeParams = [userId, groupId, title, contents, category, file];
+
+//       const connection = await pool.getConnection(async (conn) => conn);
+
+//       const createNoticeResult = await noticeDao.insertNotice(connection, insertNoticeParams);
+//       connection.release();
+//       console.log(`추가된 Notice : ${createNoticeResult[0].insertid}`)
+      
+//       return response(baseResponse.SUCCESS);
+
+//     } catch (err) {
+//         console.log(err)
+//         // logger.error(`App - createReview Service error\n: ${err.message}`);
+//         return errResponse(baseResponse.DB_ERROR);
+//     }
+// };
+
+// 파일 업로드 없이 post
 exports.createNotice = async function (userId, groupId, title, contents, category) {
-    try {
+  try {
 
-      const insertNoticeParams = [userId, groupId, title, contents, category];
+    const insertNoticeParams = [userId, groupId, title, contents, category];
 
-      const connection = await pool.getConnection(async (conn) => conn);
+    const connection = await pool.getConnection(async (conn) => conn);
 
-      const createNoticeResult = await noticeDao.insertNotice(connection, insertNoticeParams);
-      console.log(`추가된 Notice : ${createNoticeResult[0].insertid}`)
-      connection.release();
-      return response(baseResponse.SUCCESS);
+    const createNoticeResult = await noticeDao.insertNotice(connection, insertNoticeParams);
+    connection.release();
+    console.log(`추가된 Notice : ${createNoticeResult[0].insertid}`)
+    
+    return response(baseResponse.SUCCESS);
 
-    } catch (err) {
-        console.log(err)
-        // logger.error(`App - createReview Service error\n: ${err.message}`);
-        return errResponse(baseResponse.DB_ERROR);
-    }
+  } catch (err) {
+      console.log(err)
+      // logger.error(`App - createReview Service error\n: ${err.message}`);
+      return errResponse(baseResponse.DB_ERROR);
+  }
 };
 
-// exports.createNotice = async function (userId, groupId, title, contents, fileLink, fileExten, fileName) {
-//   try {
-
-//     const insertNoticeParams = [userId, groupId, title, contents, fileLink, fileExten, fileName];
-
-//     const connection = await pool.getConnection(async (conn) => conn);
-
-//     const createNoticeResult = await noticeDao.insertNotice(connection, insertReviewParams);
-//     console.log(`추가된 Notice : ${createNoticeResult[0].insertid}`)
-//     connection.release();
-//     return response(baseResponse.SUCCESS);
-
-//   } catch (err) {
-//       console.log(err)
-//       // logger.error(`App - createReview Service error\n: ${err.message}`);
-//       return errResponse(baseResponse.DB_ERROR);
-//   }
-// };
 
 
 

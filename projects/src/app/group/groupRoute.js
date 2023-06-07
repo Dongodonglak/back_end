@@ -2,6 +2,7 @@ module.exports = function(app){
   const group = require('./groupController');
 
     // 1. 그룹 생성 API
+    app.get('/app/createGroup', group.makeGroup);
     app.post('/app/group', group.createGroup);
     
     // 1. 그룹 가입 API 

@@ -1,11 +1,31 @@
+// 그룹 생성
+async function insertGroup(connection, groupName, groupType, groupImg, membershipFee) {
+  const createGroupQuery = `
+    INSERT INTO myGroup(groupName, groupType, groupImg, membershipFee)
+    VALUES (?, ?, ?, ?);
+  `;
+  const [groupRows] = await connection.query(createGroupQuery, groupName, groupType, groupImg, membershipFee);
+  return groupRows;
+}
+
+// 그룹에 가입
+async function joinGroup(connection, userId, groupId) {
+  const joinGroupQuery = `
+    INSERT INTO JoinGroup (userId, groupId, isManager)
+    VALUES (?, ?, 1);
+  `;
+  const [joinRows] = await connection.query(joinGroupQuery, [userId, groupId]);
+  return joinRows;
+}
+
 // 그룹 조회 
-async function selectGroups(connection,userId) {
+async function selectGroups(connection, userId) {
     const selectGroupListQuery = `
         SELECT userId, groupName, groupType
         FROM myGroup
         WHERE userId = ?;
       `;
-    const [groupRows] = await connection.query(selectGroupListQuery,userId);
+    const [groupRows] = await connection.query(selectGroupListQuery, userId);
     return groupRows;
   }
   
@@ -72,5 +92,7 @@ async function insertGroupUser(connection,groupId,userId,profileImg,nickname) {
     selectGroupmember,
     selectGroupCode,
     insertGroupUser,
+    insertGroup,
+    joinGroup,
   };
   

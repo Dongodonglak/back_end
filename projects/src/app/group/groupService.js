@@ -68,3 +68,42 @@ exports.postGroups = async function (userId,groupId,groupCode) {
         return errResponse(baseResponse.DB_ERROR);
     }
 }
+
+
+
+
+
+// 그룹 생성
+exports.createGroup = async function (userId, groupName, groupType, groupImg, membershipFee) {
+  try {
+    const createGroupParams = [groupName, groupType, groupImg, parseInt(membershipFee)];
+    const connection = await pool.getConnection(async (conn) => conn);
+
+    let groupId; // 그룹 ID를 저장할 변수 선언
+
+    try {
+      await connection.beginTransaction(); // 트랜잭션 시작
+
+      // 그룹 생성
+      const createGroupResult = await groupDao.insertGroup(connection, createGroupParams);
+      groupId = createGroupResult.insertId; // 생성된 그룹의 ID 저장
+
+      // 그룹에 가입
+      await groupDao.joinGroup(connection, userId, groupId);
+
+      await connection.commit(); // 트랜잭션 커밋
+    } catch (err) {
+      await connection.rollback(); // 트랜잭션 롤백
+      throw err; // 에러 다시 던지기
+    } finally {
+      connection.release(); // 커넥션 반환
+    }
+
+    console.log(`추가된 Group : ${groupId}`);
+
+    return response(baseResponse.SUCCESS);
+  } catch (err) {
+    console.log(err);
+    return errResponse(baseResponse.DB_ERROR);
+  }
+};

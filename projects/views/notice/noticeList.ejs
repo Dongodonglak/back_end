@@ -108,34 +108,54 @@
       </div>
       
       <!-- 게시물 목록 -->
+
       <div class="post">
-          <% result.forEach((el,index) => {%>
-              <!-- <th scope="row"><%= index + 1%></th> -->
-              <div class="wrapper-top">
-                <div class="post_title"><%= el.postTitle %></div>
-                <div class="post_date"><%= el.createAt.toLocaleDateString() %></div>
-              </div>
-              <div class="wrapper-down">
-                <div class="post_content"><%= el.postContent %></div>
-                <div class="post_writer"><%= el.userId %></div>
-              </div>  
-              <!-- <td>
-                <a class="btn btn-warning" href="/edit/<%= el.postId %> ">수정/삭제</a>
-              </td> -->
-            <% }) %>
-      </div>
-      
-      
+          <%
+            for(var i = (page * page_num) - page_num; i < (page * page_num); i++) {
+            if(i > length){
+                i++;
+            }else{
+                var data = rows[i]
+          %>
+          <div class="post_index"><%= i + 1 %></div>
+          <div class="wrapper-top">
+                <div class="post_title">
+                  <a href="/app/<%= data.groupId %>/notices/<%= data.postId %>"><%= data.postTitle %></a>
+                </div>
+                <div class="post_date"><%= data.createAt %></div>
+          </div>
+          <div class="wrapper-down">
+                <div class="post_content"><%= data.postContent %></div>
+                <div class="post_writer"><%= data.userId %></div>
+          </div>  2
+            <% }
+            }
+            %>
+        </div>
+
       <div class="wrapper-page">
-        <ul class="page">
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
+        <ul class="page" colspan="6">
+          <% for (var j = 1; j <= Math.ceil(rows.length / page_num); j++) { %>
+            <% if (j == page) { %>
+              <li class="active" onclick="navigateTo('/app/<%= data.groupId %>/<%= j %>');">
+                <a href="/app/<%= data.groupId %>/<%= j %>"></a>
+                </li>
+            <% } else { %>
+              <li onclick="navigateTo('/app/<%= data.groupId %>/<%= j %>');">
+                <a href="/app/<%= data.groupId %>/<%= j %>"></a>
+                </li>
+            <% } %>
+          <% } %>
         </ul>
       </div>
+
+      <script>
+        function navigateTo(url) {
+          window.location.href = url;
+        }
+      </script>
+
+
       
     </div>   
   </body>

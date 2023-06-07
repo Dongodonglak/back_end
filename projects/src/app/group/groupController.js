@@ -14,14 +14,21 @@ const { v4: uuidv4 } = require('uuid');
  * API Name : 그룹 생성 API
  * [POST] /app/group
  */
+
+// [GET] /app/createGroup
+// 그룹 생성하는 페이지를 보여준다
+exports.makeGroup = async function (req, res) {
+  res.render("../views/group/createGroup.ejs");
+}
+// 생성한 그룹 정보를 db에 저장
 exports.createGroup = async function (req, res) {
 
-  const {userId} = req.body;
+  const {groupName, groupType, groupImg, membershipFee} = req.body;
+  const userId = 1;
     
-    const createGroupResponse = await noticeService.createNotice(userId);
-
-  // return res.send(noticeResponse);
-  return res.render("../views/group/createGroup.ejs",{result:createGroupResponse});
+  const createGroupResponse = await groupService.createGroup(userId, groupName, groupType, groupImg, membershipFee);
+  
+  return res.send(createGroupResponse);
 
 };
 

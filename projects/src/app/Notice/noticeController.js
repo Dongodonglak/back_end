@@ -16,6 +16,20 @@ const {emit} = require("nodemon");
 // req.parmas.userId = userId;
 
 
+exports.main = async function (req, res) {
+
+  /**
+   * path variable : groupId
+   */
+  // const groupId = req.params.groupId;
+
+  // const noticeResponse = await noticeProvider.noticeListResult(groupId);
+  // return res.send(response(baseResponse.SUCCESS, noticeResponse));
+  return res.render("../views/mainPage.ejs");
+
+};
+
+
 
 /**
  * API No. 1
@@ -34,6 +48,16 @@ exports.getNoticeList = async function (req, res) {
   return res.render("../views/notice/noticeList.ejs",{result:noticeResponse});
 
 };
+// 페이징 연습
+// const {pool} = require("../../../config/database");
+exports.paging = async function (req, res) {
+  const page = req.params.page;
+  const groupId = req.params.groupId;
+
+  const pagingResponse = await noticeProvider.pagingResult(groupId);
+  return res.render("../views/notice/noticeList.ejs", {title: '게시판 리스트',
+   rows: pagingResponse, page:page, groupId:pagingResponse.groupId, length:pagingResponse.length-1, page_num:5, pass:true});
+}
 
 /**
  * API No. 2
@@ -67,21 +91,43 @@ exports.makeNotice = async function (req, res) {
 }
 
 // 이제 파일도 저장하게 하고 userId, groupId 세션에서 가져와서 저장하게 하기
-exports.postNotice = async function (req, res) {
-    const {title, contents} = req.body;
-    // const userId = getUserId.getUserId;
-    const userId = 1;
-    // userId = req.body.userId;
-    // const groupId = req.body.groupId;
-    const groupId = 1;
-    const category = "공지사항";
-    
-    const noticeResponse = await noticeService.createNotice(
-      userId, groupId, title, contents, category
-    );
+// exports.postNotice = async function (req, res) {
+//     const {title, contents} = req.body;
+//     console.log(req.file);
+//     const file = req.file.filename;
+//     // const userId = getUserId.getUserId;
+//     const userId = 1;
+//     // userId = req.body.userId;
+//     // const groupId = req.body.groupId;
+//     const groupId = 1;
+//     const category = '공지사항';
 
-    return res.send(noticeResponse);
-    
+//     console.log(file);
+
+//     const noticeResponse = await noticeService.createNotice(
+//       userId, groupId, title, contents, category, file );
+
+//     return res.send(noticeResponse);  
+// }
+
+//파일 업로드 없이post
+exports.postNotice = async function (req, res) {
+  const {title, contents} = req.body;
+  // console.log(req.file);
+  // const file = req.file.filename;
+  // const userId = getUserId.getUserId;
+  const userId = 1;
+  // userId = req.body.userId;
+  // const groupId = req.body.groupId;
+  const groupId = 1;
+  const category = '공지사항';
+
+  // console.log(file);
+
+  const noticeResponse = await noticeService.createNotice(
+    userId, groupId, title, contents, category);
+
+  return res.send(noticeResponse);  
 }
 
 
