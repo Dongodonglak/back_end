@@ -120,14 +120,14 @@
           <div class="post_index"><%= i + 1 %></div>
           <div class="wrapper-top">
                 <div class="post_title">
-                  <a href="/app/<%= data.groupId %>/notices/<%= data.postId %>"><%= data.postTitle %></a>
+                  <a href="/app/notice/<%= data.groupId %>/<%= data.postId %>"><%= data.postTitle %></a>
                 </div>
                 <div class="post_date"><%= data.createAt %></div>
           </div>
           <div class="wrapper-down">
                 <div class="post_content"><%= data.postContent %></div>
                 <div class="post_writer"><%= data.userId %></div>
-          </div>  2
+          </div>
             <% }
             }
             %>

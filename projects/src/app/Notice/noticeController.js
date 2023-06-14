@@ -44,12 +44,10 @@ exports.getNoticeList = async function (req, res) {
   const groupId = req.params.groupId;
 
   const noticeResponse = await noticeProvider.noticeListResult(groupId);
-  // return res.send(response(baseResponse.SUCCESS, noticeResponse));
   return res.render("../views/notice/noticeList.ejs",{result:noticeResponse});
 
 };
 // 페이징 연습
-// const {pool} = require("../../../config/database");
 exports.paging = async function (req, res) {
   const page = req.params.page;
   const groupId = req.params.groupId;
@@ -73,7 +71,7 @@ exports.getNotice = async function (req, res) {
     const noticeId = req.params.noticeId;
 
     const notice = await noticeProvider.noticeResult(groupId, noticeId);
-    return res.render("../views/notice/noticeLook.ejs",{result:notice});
+    return res.render("../views/notice/noticeLook.ejs",{result:notice, postTitle:notice.postTitle});
 
 };
 

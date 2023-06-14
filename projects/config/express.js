@@ -48,6 +48,7 @@ module.exports = function () {
     require('../src/app/User/userRoute')(app);
     require('../src/app/Notice/noticeRoute')(app, upload);
     require('../src/app/login/loginRoute')(app);
+    require('../src/app/main/mainRoute')(app);
 
     return app;
 };

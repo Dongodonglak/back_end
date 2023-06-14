@@ -6,7 +6,6 @@ async function noticeList(connection, groupId) {
 }
 // 페이징 연습
 async function pagedNotice(connection, groupId) {
-  // const offset = (page - 1) * 5;
   const pagedNoticeQuery = "SELECT groupId, postId, userId, postTitle, postContent, date_format(updateAt, '%Y-%m-%d %H:%i:%s') updateAt, " +
     "date_format(createAt, '%Y-%m-%d %H:%i:%s') createAt FROM Post WHERE groupId = ? and category = '공지사항'";
   const [pagedNoticeRows] = await connection.query(pagedNoticeQuery, groupId);
@@ -18,7 +17,8 @@ async function pagedNotice(connection, groupId) {
 
 // 공지사항 게시글 조회 
 async function selectNotice(connection, groupId, postId) {
-  const selectNoticeQuery = `SELECT * FROM Post WHERE groupId = ? AND category = '공지사항' AND postId = ?;`;
+  const selectNoticeQuery = `SELECT postTitle, postContent, date_format(createAt, '%Y-%m-%d %H:%i:%s') createAt
+  FROM Post WHERE groupId = ? AND category = '공지사항' AND postId = ?;`;
   const [noticeRows] = await connection.query(selectNoticeQuery, [groupId, postId]);
   return noticeRows;
 }

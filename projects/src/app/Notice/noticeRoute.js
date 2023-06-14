@@ -8,7 +8,7 @@ module.exports = function(app, upload){
     app.get('/app/:groupId/:page', notice.paging);
 
     // 2. 특정 공지글 조회 API
-    app.get('/app/:groupId/notices/:noticeId', notice.getNotice);
+    app.get('/app/notice/:groupId/:noticeId', notice.getNotice);
 
     // 3. 새로운 공지글 등록 API
     // 공지글 작성하는 페이지
@@ -21,11 +21,6 @@ module.exports = function(app, upload){
     // 4. 공지글 수정 API
     app.patch('/app/notices', notice.patchNotice);
 
-
-
-
-    // 메인페이지
-    app.get('/app/main', notice.main);
 };
 
 
