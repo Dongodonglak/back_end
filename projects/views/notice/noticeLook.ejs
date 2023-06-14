@@ -75,9 +75,6 @@
   </div>
 
 
-
-
-
 <div class="content">
   <div class ="notice-board-header">
     <!-- 게시판 이름 -->
@@ -85,80 +82,94 @@
       <p>notice</p>
     </div>
   </div>
-      <div class="post_content">
+      <div class="post_content-wrapper">
+        <!-- 게시글 제목 -->
         <div class="post_title">
           <p>
             <%= result[0].postTitle%>
           </p>
           <img class="more" src="/img/more.png"/>
         </div>
-        <div class="line-61-GBQ">
-        </div>
-        <div class="writerinfo-BZG">
-          <div class="writer-uVG">
-            <!-- <div class="ellipse-71-4d4">
-            </div> -->
-            <div><img class="writer_img" src="https://i.pinimg.com/564x/ce/4e/36/ce4e36fe3add8d87eaa37e84e1834d6c.jpg"></div>
-            <p class="notasheepjun-Nte">notasheepjun</p>
+
+        <!-- 구분선 -->
+        <div class="divide"></div>
+
+        <!-- 사용자 이름, 작성 시간 -->
+        <div class="writer_time_wrapper">
+          <div class="writer">
+            <div class="writerImg"><img class="writer_img" src="https://i.pinimg.com/564x/ce/4e/36/ce4e36fe3add8d87eaa37e84e1834d6c.jpg"></div>
+            <p class="user_name">notasheepjun</p>
           </div>
-          <p class="item-23-05-05-14-37-JXQ"><%= result[0].createAt%></p>
+          <div class="create_at">
+            <p><%= result[0].createAt%></p>
+          </div>
         </div>
-        <p class="quick-sort-merge-sort-bubble-sort--fWN">
+
+        <!-- 글 내용 -->
+        <p class="post_content">
         <%= result[0].postContent%>
-        <br/>
-        
-        <!-- 과제에 얼마나 하기 싫은지 낙서를 그린 것을 제출하면 숙제로 인정해줍니다. -->
         </p>
-        <div class="wrcontents-jee">
-          <div class="auto-group-sfry-F7C">
-            <div class="fileinfo-9Ca">
-              <img class="item--3Yr" src="/img/.png"/>
-              <p class="problemset3docx-8aJ">ProblemSet3.docx</p>
-            </div>
-            <div class="countht-TMg">
-              <img class="heart-1-zsQ" src="/img/heart-1.png"/>
-              <p class="item-10-8Tp">10</p>
-            </div>
+
+        <!-- 게시글 하단 첨부파일, 공감 개수, 댓글 개수 -->
+        <div class="post_lower_wrapper">
+          <div class="file">
+            <img class="file_icon" src="/img/clip.png"/>
+            <!-- 첨부파일 이름 -->
+            <p class="file_name">ProblemSet3.docx</p>
           </div>
-          <div class="countcmt-RC2">
-            <img class="free-icon-chat-8316205-P8r" src="/img/free-icon-chat-8316205.png"/>
-            <p class="item-2-v8n">2</p>
+          <!-- 공감 -->
+          <div class="likes-wrapper">
+            <img class="likes_icon" src="/img/heart.png"/>
+            <!-- 공감 개수 -->
+            <p class="likes_count">10</p>
+          </div>
+          <!-- 댓글 -->
+          <div class="comment-wrapper">
+            <img class="comment_icon" src="/img/comment.png"/>
+            <!-- 댓글 개수 -->
+            <p class="comment_count">2</p>
           </div>
         </div>
       </div>
       
-      <div class="auto-group-vncw-bEv">
+
+      <!-- 댓글 창 -->
+      <div class="post_comments_wrapper">
+        <!-- 댓글 & 답글 -->
         <div class="comments">
-          <div class="bigcomment-dSW">
-            <div class="bcinfo-ace">
-              <div class="bcuser-88N">
-                <img class="intersect-UT8" src="/img/intersect.png"/>
-                <p class="mymelody-pG6">가짜mymelody</p>
+          <!-- 일반 댓글 -->
+          <div class="original_comments">
+            <div class="comment_writer">
+              <img class="writer_img" src="https://cdn.shopify.com/s/files/1/0568/2298/8958/products/Sanrio-My-Melody-Plush-Toy-Ice-Cream-Parlor-226696-Japan-Figure-4550337226698-2_700x700.jpg?v=1658204471"/>
+              <p class="user_name">가짜mymelody</p>
+            </div>
+              <!-- <img class="edit" src="/img/image-26.png"/> -->
+            <p class="comment">낙서도 그리기 싫어요 그냥 점수만 주세요 ㅋ</p>
+          
+            <!-- 답글 -->
+            <div class="reply-wrapper">
+              <!-- 답글 단 사람 -->
+              <div class="comment_writer">
+                <div><img class="writer_img" src="https://i.pinimg.com/564x/ce/4e/36/ce4e36fe3add8d87eaa37e84e1834d6c.jpg"></div>
+                <p class="user_name">notasheepjun</p>
               </div>
-              <img class="image-26-9JN" src="/img/image-26.png"/>
+              <!-- 답글 내용 -->
+              <p class="comment">
+                하기 싫으면 하지 마세요 그냥^^ 학생은 0점이야. 학생이 아주 그냥 예의가 없네. 어디서 배운 버르장머리야?
+              </p>
             </div>
-            <p class="item--t14">낙서도 그리기 싫어요 그냥 점수만 주세요 ㅋ</p>
-          </div>
-          <div class="smallcomment-YLW">
-            <div class="scuser-gxW">
-              <div><img class="writer_img" src="https://i.pinimg.com/564x/ce/4e/36/ce4e36fe3add8d87eaa37e84e1834d6c.jpg"></div>
-              <p class="notasheepjun-Acn">notasheepjun</p>
-            </div>
-            <p class="sccontents-6mL">
-            하기 싫으면 하지 마세요 그냥^^ 학생은 0점이야.
-            <br/>
-            학생이 아주 그냥 예의가 없네. 어디서 배운 버르장머리야?
-            </p>
           </div>
         </div>
-        <div class="commentinput-2Q6">
-          <div class="comentcontents-AWJ">
-            <img class="intersect-7RY" src="/img/intersect-gra.png"/>
-            <input class="item--ewG" type="text"/>
-            <p class="item--wvN">등록</p>
+
+        <!-- 댓글 입력 창 -->
+        <div class="write_comment_wrapper">
+            <img class="writer_img" src="https://i.pinimg.com/564x/ce/4e/36/ce4e36fe3add8d87eaa37e84e1834d6c.jpg"/>
+            <input class="input_comment" type="text"/>
+          <div class="btn-submit">
+            <button class="submit">등록</button>
           </div>
-        </div>
-      </div>  
-  </div>
+        </div>  
+    </div>
 
 </body>
+</html>

@@ -1,0 +1,145 @@
+
+/* 전체 페이지 감싸는 div */
+.content {
+  width: 1200px;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  left: 680px;
+  margin-top: 50px;
+}
+
+/* 그룹 정보 */
+.group_info {
+  text-align: center;
+  height: 500px;
+  margin-top: 120px;
+  margin-bottom: 30px;
+}
+
+/* 그룹 링크 입력하라는 메세지 */
+.guide{
+  font-size: 35px;
+  font-family: JejuGothic, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-bottom: 40px;
+}
+hr {
+  width: 100%;
+  background-color: #dedeff;
+}
+
+/* 그룹이미지 */
+.group_img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin-top: 80px;
+}
+/* 그룹 이름 */
+.group_name {
+  font-size: 25px;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+/* 그룹 초대 링크 */
+.invite-link {
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+/* 링크 입력 칸 */
+.link {
+  margin-bottom: 5.4rem;
+  width: 22rem;
+  height: 3.5rem;
+  cursor: pointer;
+  background-color: #dedeff;
+  flex-shrink: 0;
+  border: none;
+}
+.btn-submit {
+  position: relative;
+  top: -30px;
+}
+.submit {
+    display: block;
+    width: 100px;
+    height: 40px;
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #9799FE;
+    border-style: none;
+    opacity: 0.8;
+}
+
+
+
+
+/*left-sidebar*/
+.left-sidebar {
+  width: 110px;
+  height: 100%;
+  background-color: #F6F7FB;
+  position: absolute;
+  left: 0;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+#logo {
+  width: 80px;
+  margin-top: 40px;
+  margin-left: 12px;
+  margin-bottom: 20px;
+}
+#home, #members, #user, #settings {
+  width: 35px;
+  position: relative;
+  right: 10px;
+  margin-bottom: 65px;
+}
+
+#group_name {
+  color: white;
+  font-weight: 700;
+  /* width: 240px; */
+  font-size: 26pt;
+  position: relative;
+  left: 120px;
+}
+
+.sidebar-menu {
+  width: 240px;
+  position: relative;
+  left: 90px;
+  top: 20px;
+}
+.sidebar-menu-items {
+  margin-bottom: 55px;
+}
+
+.sidebar-menu-items > a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.notice-board-category {
+  margin-top: 25px;
+}
+.notice-board-category > a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}

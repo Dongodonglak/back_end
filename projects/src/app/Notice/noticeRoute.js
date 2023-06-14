@@ -21,6 +21,11 @@ module.exports = function(app, upload){
     // 4. 공지글 수정 API
     app.patch('/app/notices', notice.patchNotice);
 
+
+
+    // 그룹 초대 링크
+    app.get('/app/invite', notice.inviteGroup);
+
 };
 
 

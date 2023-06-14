@@ -162,6 +162,20 @@ exports.patchNotice = async function (req, res) {
 
 
 
+exports.inviteGroup = async function (req, res) {
+
+  /**
+   * path variable : groupId
+   */
+  // const groupId = req.params.groupId;
+
+  // const noticeResponse = await noticeProvider.noticeListResult(groupId);
+  // return res.send(response(baseResponse.SUCCESS, noticeResponse));
+  return res.render("../views/group/groupInvite.ejs");
+
+};
+
+
 
 
 
