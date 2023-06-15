@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>동고동락</title>
+    <meta charset="utf-8">
+    <!-- favicon 연결 -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/xicon">
+    <link href="/css/noticeList.css" rel="stylesheet">
+    <!-- <link href="../sidebar.css" rel="stylesheet"> -->
+    <!-- <script src="../js/includeHTML.js"></script> -->
+  </head>
+  
+  <body>
+    <!-- <nav include-html="sidebar.ejs"></nav>
+    <script>
+      includeHTML();
+    </script> -->
+    <div class="sidebar">
+      <div id="group_name"><p>Algorithm<br> Club</p></div>
+      <div class="sidebar-menu">
+        <ul>
+          <div class="sidebar-menu-items"><a href="">group information</a></div>
+          <div class="sidebar-menu-items"><a href="">rank</a></div>
+          <div class="sidebar-menu-items"><a href="">schedule</a></div>
+          <div class="sidebar-menu-items"><a href="">members</a></div>
+          <div class="sidebar-menu-items"><a href="">mypage</a></div>
+          <div class="sidebar-menu-items">
+            <a href="">notice board</a>
+            <ul>
+              <div class="notice-board-category"><a href="">► notice</a></div>
+              <div class="notice-board-category"><a href="">► vote</a></div>
+              <div class="notice-board-category"><a href="">► schedule</a></div>
+              <div class="notice-board-category"><a href="">► assignments</a></div>
+              <div class="notice-board-category"><a href="">► Q&A</a></div>
+            </ul>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <div class="left-sidebar">
+      <img id="logo" src="/img/Logo.png">
+      <ul class="left-sidebar-icons">
+        <img id="home" src="/img/home.png">
+        <img id="members" src="/img/members.png">
+        <img id="user" src="/img/user.png">
+        <img id="settings" src="/img/settings.png">
+      </ul>
+    </div>
+    <div class="right-sidebar">
+      <!-- 프로필바 상단 -->
+      <div>
+        <p class="profile-text">My profile</p>
+        <img class="right-sidebar-icons" src="/img/profile_settings.png">
+        <img class="right-sidebar-icons" src="/img/alarm.png">
+      </div>
+      
+      <!-- 프로필 사진, 이름, 멤버 등급 -->
+      <div class="profile">
+        <div><img id="profile-img" src="https://i.pinimg.com/564x/ce/4e/36/ce4e36fe3add8d87eaa37e84e1834d6c.jpg"></div>
+        <p class="profile-name">cookie</p>
+        <p class="grade">member</p>
+      </div>
+
+      <!-- 멤버 또는 채팅 창 -->
+      <div class="member_or_chatting">
+        <!-- 보라색 바 -->
+        <div class="selectbar">
+          <p class="selected">member</p>
+          <p class="unselected">chatting</p>
+        </div>
+        <!-- 멤버 목록 -->
+        <div></div>
+        <!-- 채팅창 목록 -->
+        <div></div>
+      </div>
+    </div>
+
+    <!-- 중심 화면 -->
+    <div class="content">
+      <div class ="notice-board-header">
+        <!-- 게시판 이름 -->
+        <div class="notice-board-name">
+          <p>notice</p>
+        </div>
+        <div class="wrapper">
+          <!-- 검색창 -->
+          <div class= "searchbar">
+            <p>Search</p>
+            <img id="search-icon" src="/img/search.png">
+          </div>
+          <!-- 게시물 정렬 방식 -->
+          <div class="sorting_options">
+            <!-- 최신순 -->
+            <div class="recent-first">
+              <div class="circle-notselected"></div>
+              <p>최신순</p>
+            </div>
+            <!-- 오래된순 -->
+            <div class="old-first">
+              <div class="circle-selected"></div>
+              <p>오래된순</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- 게시물 목록 -->
+
+      <div class="post">
+          <%
+            for(var i = 0; i < page_num; i++) {
+            if(i > length){
+                continue;
+            }else{
+                var data = rows[i]
+          %>
+          <div class="post_index"><%= i + 1 + (page - 1)*page_num %></div>
+          <div class="wrapper-top">
+                <div class="post_title">
+                  <a href="/app/notice/<%= data.groupId %>/<%= data.postId %>"><%= data.postTitle %></a>
+                </div>
+                <div class="post_date"><%= data.createAt %></div>
+          </div>
+          <div class="wrapper-down">
+                <div class="post_content"><%= data.postContent %></div>
+                <div class="post_writer"><%= data.userId %></div>
+          </div>
+            <% }
+            }
+            %>
+        </div>
+
+        <div class="wrapper-page">
+          <ul class="page" colspan="6">
+            <% for (var j = 1; j <= 6; j++) { %>
+              <% if (j == page) { %>
+                <li class="active" onclick="navigateTo('/app/cursorPageOld/<%= data.groupId %>/<%= j %>');">
+                  <a href="/app/cursorPageOld/<%= data.groupId %>/<%= j %>"></a>
+                </li>
+              <% } else { %>
+                <li onclick="navigateTo('/app/cursorPageOld/<%= data.groupId %>/<%= j %>');">
+                  <a href="/app/cursorPageOld/<%= data.groupId %>/<%= j %>"></a>
+                </li>
+              <% } %>
+            <% } %>
+          </ul>
+        </div>
+
+
+      <script>
+        function navigateTo(url) {
+          window.location.href = url;
+        }
+      </script>
+
+
+      
+    </div>   
+  </body>
+  
+</html>

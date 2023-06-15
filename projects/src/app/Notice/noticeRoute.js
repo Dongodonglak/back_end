@@ -6,6 +6,10 @@ module.exports = function(app, upload){
     app.get('/app/:groupId/notices/:page', notice.paging);
     // 페이징 연습
     app.get('/app/:groupId/:page', notice.paging);
+    // 게시글 목록 최신순 조회
+    app.get('/app/cursorPageRecent/:groupId/:page', notice.paging_Recent);
+    // 게시글 목록 오래된순 조회
+    app.get('/app/cursorPageOld/:groupId/:page', notice.paging_Old);
 
     // 2. 특정 공지글 조회 API
     app.get('/app/notice/:groupId/:noticeId', notice.getNotice);
@@ -19,7 +23,7 @@ module.exports = function(app, upload){
 
 
     // 4. 공지글 수정 API
-    app.patch('/app/notices', notice.patchNotice);
+    app.patch('/app/notices/', notice.patchNotice);
 
 
 

@@ -52,8 +52,26 @@ exports.paging = async function (req, res) {
   const page = req.params.page;
   const groupId = req.params.groupId;
 
-  const pagingResponse = await noticeProvider.pagingResult(groupId);
+  const pagingResponse = await noticeProvider.pagingResult_Old(groupId);
   return res.render("../views/notice/noticeList.ejs", {title: '게시판 리스트',
+   rows: pagingResponse, page:page, groupId:pagingResponse.groupId, length:pagingResponse.length-1, page_num:5, pass:true});
+}
+// 페이징 연습 - 커서 기반
+exports.paging_Recent = async function (req, res) {
+  const page = req.params.page;
+  const groupId = req.params.groupId;
+
+  const pagingResponse = await noticeProvider.pagingResult_Recent(groupId, page);
+  return res.render("../views/notice/noticeList_recent.ejs", {title: '게시판 리스트',
+   rows: pagingResponse, page:page, groupId:pagingResponse.groupId, length:pagingResponse.length-1, page_num:5, pass:true});
+}
+// 오래된순
+exports.paging_Old = async function (req, res) {
+  const page = req.params.page;
+  const groupId = req.params.groupId;
+
+  const pagingResponse = await noticeProvider.pagingResult_Old(groupId, page);
+  return res.render("../views/notice/noticeList_old.ejs", {title: '게시판 리스트',
    rows: pagingResponse, page:page, groupId:pagingResponse.groupId, length:pagingResponse.length-1, page_num:5, pass:true});
 }
 

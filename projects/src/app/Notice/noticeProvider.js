@@ -22,7 +22,24 @@ exports.pagingResult = async function (groupId) {
 
   return pagingResult;
 }
+// 페이징 연습 - 최신순 cursor
+exports.pagingResult_Recent = async function (groupId, page) {
+  const connection = await pool.getConnection(async (conn) => conn);
 
+  const pagingResult = await noticeDao.pagedNotice_Recent(connection, groupId, page);
+  connection.release();
+
+  return pagingResult;
+}
+// 페이징 연습 - 오래된순 cursor
+exports.pagingResult_Old = async function (groupId, page) {
+  const connection = await pool.getConnection(async (conn) => conn);
+
+  const pagingResult = await noticeDao.pagedNotice_Old(connection, groupId, page);
+  connection.release();
+
+  return pagingResult;
+}
 
 
 

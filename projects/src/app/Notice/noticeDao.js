@@ -13,6 +13,88 @@ async function pagedNotice(connection, groupId) {
   return pagedNoticeRows;
 }
 
+// 페이징 연습(커서 기반!! -- 최신순)
+async function pagedNotice_Recent(connection, groupId, page) {
+  let pagedNoticeQuery;
+  const cursor = (page - 1) * 5; // 커서 값 계산
+
+  if (page === 1) {
+    pagedNoticeQuery = `
+      SELECT groupId, postId, userId, postTitle, postContent,
+        DATE_FORMAT(updateAt, '%Y-%m-%d %H:%i:%s') AS updateAt,
+        DATE_FORMAT(createAt, '%Y-%m-%d %H:%i:%s') AS createAt,
+        LPAD(CONCAT(DATE(createAt), ' ', TIME(createAt)), 20, '0') AS 'cursor'
+      FROM Post
+      WHERE groupId = ? AND category = '공지사항'
+      ORDER BY createAt DESC
+      LIMIT 5
+    `;
+  } else {
+    pagedNoticeQuery = `
+      SELECT groupId, postId, userId, postTitle, postContent,
+        DATE_FORMAT(updateAt, '%Y-%m-%d %H:%i:%s') AS updateAt,
+        DATE_FORMAT(createAt, '%Y-%m-%d %H:%i:%s') AS createAt,
+        LPAD(CONCAT(DATE(createAt), ' ', TIME(createAt)), 20, '0') AS 'cursor'
+      FROM Post
+      WHERE groupId = ? AND category = '공지사항'
+        AND createAt < (
+          SELECT createAt
+          FROM Post
+          WHERE groupId = ? AND category = '공지사항'
+          ORDER BY createAt DESC
+          LIMIT ${cursor}, 1
+        )
+      ORDER BY createAt DESC
+      LIMIT 5
+    `;
+  }
+  
+
+  const [pagedNoticeRows] = await connection.query(pagedNoticeQuery, [groupId, groupId, cursor]);
+  return pagedNoticeRows;
+}
+
+// 페이징 연습(커서 기반!! -- 오래된순)
+async function pagedNotice_Old(connection, groupId, page) {
+  let pagedNoticeQuery;
+  const cursor = (page - 1) * 5; // 커서 값 계산
+
+  if (page === 1) {
+    pagedNoticeQuery = `
+      SELECT groupId, postId, userId, postTitle, postContent,
+        DATE_FORMAT(updateAt, '%Y-%m-%d %H:%i:%s') AS updateAt,
+        DATE_FORMAT(createAt, '%Y-%m-%d %H:%i:%s') AS createAt,
+        LPAD(CONCAT(DATE(createAt), ' ', TIME(createAt)), 20, '0') AS 'cursor'
+      FROM Post
+      WHERE groupId = ? AND category = '공지사항'
+      ORDER BY createAt ASC
+      LIMIT 5
+    `;
+  } else {
+    pagedNoticeQuery = `
+      SELECT groupId, postId, userId, postTitle, postContent,
+        DATE_FORMAT(updateAt, '%Y-%m-%d %H:%i:%s') AS updateAt,
+        DATE_FORMAT(createAt, '%Y-%m-%d %H:%i:%s') AS createAt,
+        LPAD(CONCAT(DATE(createAt), ' ', TIME(createAt)), 20, '0') AS 'cursor'
+      FROM Post
+      WHERE groupId = ? AND category = '공지사항'
+        AND createAt > (
+          SELECT createAt
+          FROM Post
+          WHERE groupId = ? AND category = '공지사항'
+          ORDER BY createAt ASC
+          LIMIT ${cursor}, 1
+        )
+      ORDER BY createAt ASC
+      LIMIT 5
+    `;
+  }
+  
+
+  const [pagedNoticeRows] = await connection.query(pagedNoticeQuery, [groupId, groupId, cursor]);
+  return pagedNoticeRows;
+}
+
 
 
 // 공지사항 게시글 조회 
@@ -86,4 +168,6 @@ module.exports = {
   insertNotice,
   updateNotice,
   pagedNotice,
+  pagedNotice_Recent,
+  pagedNotice_Old,
 };
