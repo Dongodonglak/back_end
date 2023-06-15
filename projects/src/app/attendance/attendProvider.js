@@ -8,7 +8,7 @@ const attendDao = require("./attendDao");
 // 출결 조회 
 exports.attendUserList = async function (groupId, scheduleId) {
     const connection = await pool.getConnection(async (conn) => conn);
-    const attendListResult = await attendDao.selectAttend(connection, [groupId, scheduleId]);
+    const attendListResult = await attendDao.selectAttend(connection, groupId, scheduleId);
     connection.release();
 
     return attendListResult;

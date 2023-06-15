@@ -13,6 +13,18 @@ const {connect} = require("http2");
 
 // Service: Create, Update, Delete 비즈니스 로직 처리
 
+// 출석 정보 저장
+exports.updateAttendance = async function (userId, status) {
+    try {
+      // attendDao의 updateAttendance 함수를 호출하여 선택된 사용자의 attendStatus를 업데이트합니다.
+      await attendDao.updateAttendance(userId, status);
+    } catch (error) {
+      console.error('업데이트 오류:', error);
+      throw error;
+    }
+  };
+  
+
 exports.createUser = async function (email, password, nickname) {
     try {
         // 이메일 중복 확인

@@ -4,6 +4,8 @@ module.exports = function(app){
     // 1. 출결 조회 API
     app.get('/app/members/:groupId/attendance/:scheduleId', attend.getAttendance);
 
+    // 출석 정보 저장
+    app.post('/app/members/:groupId/attendance/:scheduleId/update', attend.updateAttendance);
 };
 
 

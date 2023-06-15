@@ -17,8 +17,8 @@ exports.getAssginment = async function (req, res) {
     const groupId = req.params.groupId;
 
     const assginmentList = await assignProvider.assignmentList(groupId);
-    return res.send(response(baseResponse.SUCCESS, assginmentList));
-    //return res.render("../views/attendance/attend.ejs",attendListByDate);
+    // return res.send(response(baseResponse.SUCCESS, assginmentList));
+    return res.render("../views/attendance/attend.ejs",attendListByDate);
 };
 
 

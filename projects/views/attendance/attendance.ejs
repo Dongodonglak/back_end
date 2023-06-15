@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동고동락</title>
     <link href="/css/attendance.css" rel="stylesheet">
+    <!-- main.js -->
+    <script defer src="/js/attendance.js"></script>
+    <!-- google material-icon -->
+    <!-- Google material-icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
@@ -96,118 +102,126 @@
             <li>
                 <div class="attend_box">  
                     <div class="member_section">
-                            <ul class="memberlist">
-                                <li class = first_li>
-                                    <div class="memberprofile_first">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">조은재</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile">
-                                        <img id="profile" src="../img/mymelody.jpeg">
-                                        <p class="profile_name">이지원</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">김준희</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">서가은</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile_first">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">김수연</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">조은재</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">조은재</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">서가은</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile_first">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">조은재</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">조은재</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">조은재</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="memberprofile">
-                                        <img id="profile" src="../img/profile.png">
-                                        <p class="profile_name">조은재</p>
-                                    </div>
-                                </li>
-                            </ul>
+                        <ul class="memberlist">
+                            <li class = "first_li">
+                                <div class="memberprofile memberprofile_first">
+                                    <img id="profile" src="../img/profile_img.jpg">
+                                    <p class="profile_name">조은재</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="memberprofile">
+                                    <img id="profile" src="../img/profile_img2.jpg">
+                                    <p class="profile_name">이지원</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="memberprofile">
+                                    <img id="profile" src="../img/profile_img3.jpg">
+                                    <p class="profile_name">김준희</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="memberprofile">
+                                    <img id="profile" src="../img/profile_img4.jpg">
+                                    <p class="profile_name">서가은</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="memberprofile memberprofile_first">
+                                    <img id="profile" src="../img/profile_img5.jpg">
+                                    <p class="profile_name">김수연</p>
+                                </div>
+                            </li>
+                        </ul>
+                            
                     </div>
                     <div class="text_section">
                         <ul class="textlist">
-                            <li><input type="date" value="2030-12-30" class="datebox"></li>
+                            <li><input type="date" value="2030-12-30" class="datebox" style="cursor: pointer;"></li>
                             <li><div class="line"></div></li>
-                            <li><div class="attendance_txt">
+                            <li>
+                                <div class="attendance_txt manager_att">
+                                    <div name="checkbox" value="1" class="checkBox checked">
+                                        <span class="material-icons checkIcon">
+                                            done
+                                        </span>
+                                    </div>
+                                    <div class="checkBox unchecked"></div>
+                                    <div class="manager_att_name">조은재</div>
+                                </div>
                                 <% result.forEach((el, index) => {%>
-                                    <div class="attend_name"><%= el.nickname %></div>
-                                    <div class="attend_timestamp"><%= el.attendanceTime %></div>
-                                    <div class="attend_state">출석</div>
-                                  <% }) %>
+                                <div class="attendance_txt member_att" style="display: none">
+                                        <div class="attend_name"><%= el.nickname %></div>
+                                        <div class="attend_timestamp"><%= el.attendanceTime.toTimeString().substring(0, 8) %></div>
+                                        <div class="attend_state"><%= el.attendStatus %></div>
                                 </div>
-                                <!-- <div class="attendance_txt">
-                                    <div class="attend_name">박지웅</div>
-                                    <div class="attend_timestamp">14:32:47</div>
-                                    <div class="attend_state">출석</div>
+                                <% }) %>
+                            </li>
+                            <li>
+                                <div class="attendance_txt manager_att">
+                                    <div name="checkbox" value="2" class="checkBox checked">
+                                        <span class="material-icons checkIcon">
+                                            done
+                                        </span>
+                                    </div>
+                                    <div class="checkBox unchecked"></div>
+                                    <div class="manager_att_name">이지원</div>
                                 </div>
-                                <div class="attendance_txt">
-                                    <div class="attend_name">데빌홍</div>
-                                    <div class="attend_timestamp">14:32:47</div>
-                                    <div class="attend_state">출석</div>
+                                
+                            </li>
+                            <li>
+                                <div class="attendance_txt manager_att">
+                                    <div name="checkbox" value="3" class="checkBox checked">
+                                        <span class="material-icons checkIcon">
+                                            done
+                                        </span>
+                                    </div>
+                                    <div class="checkBox unchecked"></div>
+                                    <div class="manager_att_name">김준희</div>
                                 </div>
-                                <div class="attendance_txt">
-                                    <div class="attend_name">심광섭</div>
-                                    <div class="attend_timestamp">14:32:47</div>
-                                    <div class="attend_state">출석</div>
-                                </div>
-                                <div class="attendance_txt">
-                                    <div class="attend_name">조은재</div>
-                                    <div class="attend_timestamp">14:32:47</div>
-                                    <div class="attend_state">출석</div>
-                                </div>
-                                <div class="attendance_txt">
-                                    <div class="attend_name">이지원</div>
+                                <!-- <div class="attendance_txt member_att" style="display: none">
+                                    <div class="attend_name">김준희</div>
                                     <div class="attend_timestamp">14:32:47</div>
                                     <div class="attend_state">출석</div>
                                 </div> -->
                             </li>
+                            <li>
+                                <div class="attendance_txt manager_att">
+                                    <div name="checkbox" value="4" class="checkBox checked">
+                                        <span class="material-icons checkIcon">
+                                            done
+                                        </span>
+                                    </div>
+                                    <div class="checkBox unchecked"></div>
+                                    <div class="manager_att_name">서가은</div>
+                                </div>
+                                <!-- <div class="attendance_txt member_att" style="display: none">
+                                    <div class="attend_name">서가은</div>
+                                    <div class="attend_timestamp">14:32:47</div>
+                                    <div class="attend_state">출석</div>
+                                </div> -->
+                            </li>
+                            <li>
+                                <div class="attendance_txt manager_att">
+                                    <div name="checkbox" value="5" class="checkBox checked">
+                                        <span class="material-icons checkIcon">
+                                            done
+                                        </span>
+                                    </div>
+                                    <div class="checkBox unchecked"></div>
+                                    <div class="manager_att_name">김수연</div>
+                                </div>
+                                <!-- <div class="attendance_txt member_att" style="display: none">
+                                    <div class="attend_name">김수연</div>
+                                    <div class="attend_timestamp">00:00:00</div>
+                                    <div class="attend_state" style="color: #9BBE5A;">결석</div>
+                                </div> -->
+                            </li>
+                            <div class="saveAtt">
+                                <span id="cancelBtn">취소</span>
+                                <span id ="saveBtn">저장</span>
+                            </div>
                         </ul>
                     </div>
                 </div>
